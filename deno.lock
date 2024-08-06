@@ -4,7 +4,6 @@
     "specifiers": {
       "npm:@langchain/community": "npm:@langchain/community@0.0.42",
       "npm:@langchain/core@0.1.48": "npm:@langchain/core@0.1.48_zod@3.22.4",
-      "npm:@langchain/openai@0.0.22": "npm:@langchain/openai@0.0.22_zod@3.22.4",
       "npm:faiss-node": "npm:faiss-node@0.5.1",
       "npm:ignore": "npm:ignore@5.3.1",
       "npm:langchain@0.1.29": "npm:langchain@0.1.29_ignore@5.3.1_zod@3.22.4",
@@ -91,16 +90,6 @@
           "p-queue": "p-queue@6.6.2",
           "p-retry": "p-retry@4.6.2",
           "uuid": "uuid@9.0.1",
-          "zod": "zod@3.22.4",
-          "zod-to-json-schema": "zod-to-json-schema@3.22.4_zod@3.22.4"
-        }
-      },
-      "@langchain/openai@0.0.22_zod@3.22.4": {
-        "integrity": "sha512-mkXRSeedwCzPnfvp1kvaGBXyVWTB86n77pUyw5bC9ka43/cPBHZdHlSnTZMuJi3H4RnV4CMxunaOlm+s7NWfxQ==",
-        "dependencies": {
-          "@langchain/core": "@langchain/core@0.1.48_zod@3.22.4",
-          "js-tiktoken": "js-tiktoken@1.0.10",
-          "openai": "openai@4.29.2",
           "zod": "zod@3.22.4",
           "zod-to-json-schema": "zod-to-json-schema@3.22.4_zod@3.22.4"
         }
