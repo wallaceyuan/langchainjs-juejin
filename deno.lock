@@ -4,9 +4,11 @@
     "specifiers": {
       "npm:@langchain/community": "npm:@langchain/community@0.0.42",
       "npm:@langchain/core@0.1.48": "npm:@langchain/core@0.1.48_zod@3.22.4",
+      "npm:@langchain/openai@0.0.22": "npm:@langchain/openai@0.0.22_zod@3.22.4",
       "npm:faiss-node": "npm:faiss-node@0.5.1",
       "npm:ignore": "npm:ignore@5.3.1",
       "npm:langchain@0.1.29": "npm:langchain@0.1.29_ignore@5.3.1_zod@3.22.4",
+      "npm:pdf-parse": "npm:pdf-parse@1.1.1",
       "npm:vectordb": "npm:vectordb@0.4.13_@apache-arrow+ts@14.0.2_apache-arrow@14.0.2"
     },
     "npm": {
@@ -90,6 +92,16 @@
           "p-queue": "p-queue@6.6.2",
           "p-retry": "p-retry@4.6.2",
           "uuid": "uuid@9.0.1",
+          "zod": "zod@3.22.4",
+          "zod-to-json-schema": "zod-to-json-schema@3.22.4_zod@3.22.4"
+        }
+      },
+      "@langchain/openai@0.0.22_zod@3.22.4": {
+        "integrity": "sha512-mkXRSeedwCzPnfvp1kvaGBXyVWTB86n77pUyw5bC9ka43/cPBHZdHlSnTZMuJi3H4RnV4CMxunaOlm+s7NWfxQ==",
+        "dependencies": {
+          "@langchain/core": "@langchain/core@0.1.48_zod@3.22.4",
+          "js-tiktoken": "js-tiktoken@1.0.10",
+          "openai": "openai@4.29.2",
           "zod": "zod@3.22.4",
           "zod-to-json-schema": "zod-to-json-schema@3.22.4_zod@3.22.4"
         }
@@ -313,6 +325,12 @@
       "crypt@0.0.2": {
         "integrity": "sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==",
         "dependencies": {}
+      },
+      "debug@3.2.7": {
+        "integrity": "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==",
+        "dependencies": {
+          "ms": "ms@2.1.3"
+        }
       },
       "decamelize@1.2.0": {
         "integrity": "sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==",
@@ -610,6 +628,10 @@
         "integrity": "sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==",
         "dependencies": {}
       },
+      "node-ensure@0.0.0": {
+        "integrity": "sha512-DRI60hzo2oKN1ma0ckc6nQWlHU69RH6xN0sjQTjMpChPfTYvKZdcQFfdYK2RWbJcKyUizSIy/l8OTGxMAM1QDw==",
+        "dependencies": {}
+      },
       "node-fetch@2.7.0": {
         "integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
         "dependencies": {
@@ -672,6 +694,13 @@
         "integrity": "sha512-HJxs9K9AztdIQIAIa/OIazRAUW/L6B9hbQDxO4X07roW3eo9XqZc2ur9bn1StH9CnbbI9EgvejHQX7CBpCF1QA==",
         "dependencies": {
           "repeat-string": "repeat-string@1.6.1"
+        }
+      },
+      "pdf-parse@1.1.1": {
+        "integrity": "sha512-v6ZJ/efsBpGrGGknjtq9J/oC8tZWq0KWL5vQrk2GlzLEQPUDB1ex+13Rmidl1neNN358Jn9EHZw5y07FFtaC7A==",
+        "dependencies": {
+          "debug": "debug@3.2.7",
+          "node-ensure": "node-ensure@0.0.0"
         }
       },
       "prebuild-install@7.1.2": {

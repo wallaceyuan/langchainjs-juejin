@@ -3,6 +3,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import "dotenv/config";
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
 import { OpenAIEmbeddings } from "@langchain/openai";
+import fetch from './fetch'
 
 const run = async () => {
   const loader = new TextLoader("../data/kong.txt");
@@ -15,7 +16,7 @@ const run = async () => {
 
   const splitDocs = await splitter.splitDocuments(docs);
 
-  const embeddings = new OpenAIEmbeddings();
+  const embeddings = new OpenAIEmbeddings({},  { fetch: fetch });
   const vectorStore = await FaissStore.fromDocuments(splitDocs, embeddings);
 
   const directory = "../db/kongyiji";
