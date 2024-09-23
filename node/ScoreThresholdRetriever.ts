@@ -2,12 +2,13 @@ import { FaissStore } from "@langchain/community/vectorstores/faiss";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import "dotenv/config";
 import { ScoreThresholdRetriever } from "langchain/retrievers/score_threshold";
+import fetch from './fetch/index'
 
 process.env.LANGCHAIN_VERBOSE = "true";
 
 async function run() {
   const directory = "../db/kongyiji";
-  const embeddings = new OpenAIEmbeddings();
+  const embeddings = new OpenAIEmbeddings({}, { fetch });
   const vectorstore = await FaissStore.load(directory, embeddings);
 
   const retriever = ScoreThresholdRetriever.fromVectorStore(vectorstore, {

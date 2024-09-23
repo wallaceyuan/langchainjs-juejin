@@ -8,6 +8,7 @@ import { StringOutputParser } from "@langchain/core/output_parsers";
 import readline from "readline";
 import util from "util";
 import "dotenv/config";
+import fetch from '../fetch'
 
 const guaInfoBuffer = readFileSync(path.join(__dirname, "./gua.json"));
 const guaInfo = JSON.parse(guaInfoBuffer.toString());
@@ -96,7 +97,7 @@ async function main() {
     ["human", "{input}"],
   ]);
 
-  const llm = new ChatOpenAI();
+  const llm = new ChatOpenAI({},{ fetch });
   const chain = prompt.pipe(llm).pipe(new StringOutputParser());
   const chainWithHistory = new RunnableWithMessageHistory({
     runnable: chain,

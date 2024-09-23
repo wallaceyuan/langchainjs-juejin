@@ -5,6 +5,7 @@ import { AgentExecutor, createReactAgent } from "langchain/agents";
 import { pull } from "langchain/hub";
 import type { PromptTemplate } from "@langchain/core/prompts";
 import { Calculator } from "@langchain/community/tools/calculator";
+import fetch from './fetch/index'
 
 process.env.LANGCHAIN_TRACING_V2 = "true";
 
@@ -14,7 +15,7 @@ async function main() {
   const prompt = await pull<PromptTemplate>("hwchase17/react");
   const llm = new ChatOpenAI({
     temperature: 0,
-  });
+  }, { fetch });
 
   const agent = await createReactAgent({
     llm,

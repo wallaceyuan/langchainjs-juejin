@@ -12,6 +12,7 @@ import { ChatMessageHistory } from "langchain/stores/message/in_memory";
 import { RunnableWithMessageHistory } from "@langchain/core/runnables";
 import readline from "readline";
 import { Calculator } from "@langchain/community/tools/calculator";
+import fetch from '../fetch'
 
 process.env.LANGCHAIN_TRACING_V2 = "true";
 
@@ -83,6 +84,8 @@ async function getAgent() {
 
   const llm = new ChatOpenAI({
     temperature: 0.4,
+  }, {
+    fetch
   });
   const agent = await createOpenAIToolsAgent({
     llm,

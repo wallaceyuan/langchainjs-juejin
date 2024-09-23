@@ -3,15 +3,16 @@ import { OpenAIEmbeddings, ChatOpenAI } from "@langchain/openai";
 import "dotenv/config";
 import { LLMChainExtractor } from "langchain/retrievers/document_compressors/chain_extract";
 import { ContextualCompressionRetriever } from "langchain/retrievers/contextual_compression";
+import fetch from './fetch/index'
 
 process.env.LANGCHAIN_VERBOSE = "true";
 
 async function run() {
   const directory = "../db/kongyiji";
-  const embeddings = new OpenAIEmbeddings();
+  const embeddings = new OpenAIEmbeddings({}, { fetch });
   const vectorstore = await FaissStore.load(directory, embeddings);
 
-  const model = new ChatOpenAI();
+  const model = new ChatOpenAI({}, { fetch });
   const compressor = LLMChainExtractor.fromLLM(model);
 
   const retriever = new ContextualCompressionRetriever({

@@ -3,13 +3,16 @@ import { OpenAIEmbeddings, ChatOpenAI } from "@langchain/openai";
 import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
 import "faiss-node";
 import "dotenv/config";
+import fetch from './fetch/index'
 
+
+console.log('fetch', fetch)
 async function run() {
   const directory = "../db/kongyiji";
-  const embeddings = new OpenAIEmbeddings();
+  const embeddings = new OpenAIEmbeddings({}, {fetch});
   const vectorstore = await FaissStore.load(directory, embeddings);
 
-  const model = new ChatOpenAI();
+  const model = new ChatOpenAI({}, {fetch});
   const retriever = MultiQueryRetriever.fromLLM({
     llm: model,
     retriever: vectorstore.asRetriever(3),
